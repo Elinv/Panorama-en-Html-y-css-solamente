@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panorama 3d x Elinv</title>
+  <style>
+    .stage {
+      perspective: 300px;
+      -webkit-perspective: 300px;
+      transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+    }
+
+    .escenario {
+      transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform: translateZ(200px);
+      -webkit-transform: translateZ(200px);
+    }
+
+    .panorama {
+      /*background-color: blue;*/
+      position: relative;
+      left: 0px;
+      top: 0px;
+      width: 300px;
+      height: 300px;
+      top: 50%;
+      left: 50%;
+      margin-top: -150px;
+      margin-left: -150px;
+      transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+      -webkit-animation: rotate-panorama 10s linear infinite;
+      animation: rotate-panorama 10s linear infinite;
+    }
+
+    .panoramaCara {
+      position: absolute;
+      transition: all 600ms;
+      -webkit-transition: all 600ms;
+      top: 0px;
+      left: 0px;
+      width: 300px;
+      height: 300px;
+      opacity: 1.0;
+    }
+
+    @keyframes rotate-panorama {
+      from {
+        transform: rotateY(0Deg);
+      }
+
+      to {
+        transform: rotateY(360Deg);
+      }
+    }
+
+    @-webkit-keyframes rotate-panorama {
+      from {
+        -webkit-transform: rotateY(0Deg);
+      }
+
+      to {
+        -webkit-transform: rotateY(360Deg);
+      }
+    }
+
+    #pared1 {
+      transform: translateZ(150px);
+      background: red;
+      background-image: url(./pared1.png);
+    }
+
+    #pared2 {
+      transform: translateX(-150px) rotateY(-90Deg);
+      background: green;
+      background-image: url(./pared2.png);
+    }
+
+    #pared3 {
+      transform: translateZ(-150px);
+      background: blue;
+      background-image: url(./pared3.png);
+    }
+
+    #pared4 {
+      transform: translateX(150px) rotateY(90Deg);
+      background: yellow;
+      background-image: url(./pared4.png);
+    }
+
+    #piso {
+      transform: translateY(150px) rotateX(90Deg);
+      background: purple;
+      background-image: url(./piso.png);
+    }
+
+    #cielo {
+      transform: translateY(-150px) rotateX(-90Deg);
+      background: rgb(0, 255, 238);
+      background-image: url(./cielo.png);
+    }
+
+    #pared1 {
+      -webkit-transform: translateZ(147px);
+    }
+
+    #pared4 {
+      -webkit-transform: translateX(147px) rotateY(90Deg);
+    }
+
+    #pared2 {
+      -webkit-transform: translateX(-147px) rotateY(-90Deg);
+    }
+
+    #pared3 {
+      -webkit-transform: translateZ(-147px);
+    }
+
+    #piso {
+      -webkit-transform: translateY(147px) rotateX(90Deg);
+    }
+
+    #cielo {
+      -webkit-transform: translateY(-146px) rotateX(-90Deg);
+    }
+
+
+    .screen_centrado {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100px;
+      height: 100px;
+      margin-left: -50px;
+      margin-top: -50px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="stage screen_centrado">
+    <div class="escenario">
+      <div class=" panorama">
+        <img class="panoramaCara" id="pared1" />
+        <img class="panoramaCara" id="pared4" />
+        <img class="panoramaCara" id="pared2" />
+        <img class="panoramaCara" id="pared3" />
+        <img class="panoramaCara" id="piso" />
+        <img class="panoramaCara" id="cielo" />
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
